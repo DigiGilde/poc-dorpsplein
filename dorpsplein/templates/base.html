@@ -1,0 +1,47 @@
+
+{% load static i18n compress static %}
+{% get_current_language as LANGUAGE_CODE %}
+
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>
+      {% block title %}Dorsplein{% endblock title %}
+    </title>
+
+    {% block css %}
+      {% compress css %}
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0/themes.css" rel="stylesheet" type="text/css" />
+      {% endcompress %}
+    {% endblock css %}
+
+    {% block javascript %}
+      {% compress javascript %}
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.10/htmx.min.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      {% endcompress %}
+    {% endblock javascript %}
+  </head>
+  <body class="bg-neutral-200 min-h-screen">
+    <header>
+      <div class="navbar bg-yellow-400 shadow-sm">
+        <a href="{% url 'plein:index' %}" class="btn btn-active bg-yellow-400 border-yellow-400 text-xl">
+          <img src="{% static 'images/logo.png' %}" alt="Digi Gilde Icon" class="w-12 h-12" />
+          Digi Gilde Dorpsplein
+        </a>
+      </div>
+    </header>
+
+    <main class="container mx-auto py-8">
+      <section class="bg-white rounded-lg text-black p-6">
+        {% block content %}<p>Use this document as a way to quick start any new project.</p>{% endblock content %}
+      </section>
+    </main>
+
+  </body>
+</html>

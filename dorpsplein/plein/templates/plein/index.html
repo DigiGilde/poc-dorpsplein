@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="flex justify-center">
+    <h1 class="text-3xl font-bold mt-4 mb-8">Het Plein</h1>
+  </div>
+
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+    <div class="card card-border bg-base-100 shadow-sm h-30">
+      <a href="{% url 'projects:list' %}">
+        <div class="card-body">
+          <h2 class="card-title">Projecten</h2>
+          <p>Een overzicht van Digi Gilde projecten</p>
+        </div>
+      </a>
+    </div>
+    <div class="card card-border bg-base-100 shadow-sm h-30">
+      <a href="{% url 'people:list' %}">
+        <div class="card-body">
+          <h2 class="card-title">Personen</h2>
+          <p>Een overzicht collega's die in het Digi Gilde werken</p>
+        </div>
+      </a>
+    </div>
+  </div>
+{% endblock content %}

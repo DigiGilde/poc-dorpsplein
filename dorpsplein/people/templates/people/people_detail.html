@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="breadcrumbs text-sm">
+    <ul>
+      <li><a href="{% url 'plein:index' %}">Plein</a></li>
+      <li><a href="{% url 'people:list' %}">Personen</a></li>
+      <li>Persoon: {{ person.name }}</li>
+    </ul>
+  </div>
+
+  <div>
+    <h1 class="text-xl font-bold my-4">Persoon: {{ person.name }}</h1>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="table">
+      <tbody>
+          <tr>
+            <td class="w-40">ID</td>
+            <td>{{ person.id }}</td>
+          </tr>
+          <tr>
+            <td>Persoon</td>
+            <td>{{ person.name }}</td>
+          </tr>
+          <tr>
+            <td>Account</td>
+            <td>{% if person.user %}{{ person.user }}{% else %}-{% endif %}</td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}

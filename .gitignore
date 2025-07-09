@@ -1,0 +1,24 @@
+# Workspace
+.venv
+.vscode
+
+# MacOS
+*.DS_Store
+.AppleDouble
+.LSOverride
+
+# Python
+__pycache__/
+*.py[oc]
+*$py.class
+
+# Translations
+*.mo
+*.pot
+
+# Django
+staticfiles/
+db.sqlite3
+
+# Celery
+celerybeat-schedule

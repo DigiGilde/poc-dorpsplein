@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="breadcrumbs text-sm">
+    <ul>
+      <li><a href="{% url 'plein:index' %}">Plein</a></li>
+      <li><a href="{% url 'projects:list' %}">Projects</a></li>
+    </ul>
+  </div>
+
+  <div>
+    <h1 class="text-xl font-bold my-4">Projects</h1>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="table">
+      <thead class="text-black">
+        <tr>
+          <th class="w-20 min-w-20">ID</th>
+          <th class="min-w-50">Name</th>
+          <th class="min-w-50">Organization</th>
+          <th class="min-w-50">Team size</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for project in projects %}
+          <tr>
+            <td><a href="{% url 'projects:detail' project.pk %}">{{ project.small_id }}</a></td>
+            <td><a href="{% url 'projects:detail' project.pk %}">{{ project.name }}</a></td>
+            <td>{{ project.organization.name }}</td>
+            <td>{{ project.team.count }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}

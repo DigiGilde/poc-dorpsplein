@@ -1,0 +1,28 @@
+name: rig-dorpsplein
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./docker/local/django/Dockerfile
+    container_name: rig-dorpsplein-django
+    ports:
+      - 8000:8000
+    command: /start
+    volumes:
+      - .:/app:z
+    develop:
+      watch:
+        - action: rebuild
+          path: ./docker/local/django/Dockerfile
+        - action: rebuild
+          path: ./pyproject.toml
+        - action: rebuild
+          path: ./uv.lock
+        - action: rebuild
+          path: ./docker/local/django/start
+        - action: rebuild
+          path: ./docker/production/django/entrypoint
+
+volumes:
+  dev_db_data: {}
