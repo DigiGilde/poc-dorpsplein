@@ -3,7 +3,7 @@ default_language_version:
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: check-added-large-files
       - id: check-builtin-literals
@@ -22,19 +22,19 @@ repos:
       - id: trailing-whitespace
 
   - repo: https://github.com/astral-sh/uv-pre-commit
-    rev: 0.6.3
+    rev: 0.10.4
     hooks:
       - id: uv-lock
 
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.7
+    rev: v0.15.2
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
       - id: ruff-format
 
   - repo: https://github.com/RobertCraigie/pyright-python
-    rev: v1.1.394
+    rev: v1.1.408
     hooks:
     - id: pyright
 
@@ -45,7 +45,7 @@ repos:
       - id: djlint-django
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: "1.23.1"
+    rev: "1.29.1"
     hooks:
       - id: django-upgrade
         args: [--target-version, "5.1"]
